@@ -3,6 +3,10 @@ Visualize the time you have left. Perfect for presentations.
 
 ![Screenshot][screen]
 
+| Project       | Latest release |
+| ------------- | -------------- |
+| VisualTimer   | [Zip][release] |
+
 ## Requirements
 Any reasonably modern browser that is kept reasonably up-to-date.
 
@@ -48,3 +52,4 @@ There is no whitespace between the value and the unit.
 
 
   [screen]: screenshot.png
+  [release]: https://github.com/Nolonar/VisualTimer/releases/latest/download/VisualTimer.zip
