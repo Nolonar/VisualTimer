@@ -4,14 +4,16 @@ const angleTop = -Math.PI / 2;
 const defaultDuration = 20 * MINUTES;
 
 class Timer {
+    get timeLeft() {
+        return this.timerEnd.getTime() - new Date().getTime();
+    }
+
     get timeLeftPercent() {
-        let deltaTime = this.timerEnd.getTime() - new Date().getTime();
-        return deltaTime / this.durationMs;
+        return this.timeLeft / this.durationMs;
     }
 
     get timerAngleRad() {
-        let angleDelta = pi2 * this.timeLeftPercent;
-        return angleDelta + angleTop;
+        return pi2 * this.timeLeftPercent + angleTop;
     }
 
     constructor(canvasElement) {
@@ -49,11 +51,7 @@ class Timer {
 
     update() {
         this.updateDimensions();
-
-        this.ctx.clearRect(0, 0, this.width, this.height);
-        this.drawTimerBackground();
-
-        this.drawTimerSpent();
+        this.drawAll();
 
         if (this.timeLeftPercent > 0) {
             requestAnimationFrame(() => this.update());
@@ -66,24 +64,41 @@ class Timer {
         }
     }
 
-    drawTimerBackground() {
-        this.ctx.beginPath();
-        this.ctx.arc(this.centerX, this.centerY, this.radius, 0, pi2);
-        this.ctx.fillStyle = "white";
-        this.ctx.fill();
+    drawAll() {
+        let ctx = this.ctx;
+
+        ctx.clearRect(0, 0, this.width, this.height);
+        this.drawTimerBackground(ctx);
+        this.drawTimerSpent(ctx);
+        this.drawTimeLeft(ctx);
     }
 
-    drawTimerSpent() {
+    drawTimerBackground(ctx) {
+        ctx.beginPath();
+        ctx.arc(this.centerX, this.centerY, this.radius, 0, pi2);
+        ctx.fillStyle = "white";
+        ctx.fill();
+    }
+
+    drawTimerSpent(ctx) {
         let angle = this.timeLeftPercent <= 0 ? angleTop + pi2 : this.timerAngleRad;
 
-        this.ctx.beginPath();
-        this.ctx.moveTo(this.centerX, this.centerY);
-        this.ctx.lineTo(this.centerX, 0);
-        this.ctx.arc(this.centerX, this.centerY, this.radius, angleTop, angle, true);
-        this.ctx.lineTo(this.centerX, this.centerY);
-        this.ctx.closePath();
+        ctx.beginPath();
+        ctx.moveTo(this.centerX, this.centerY);
+        ctx.lineTo(this.centerX, 0);
+        ctx.arc(this.centerX, this.centerY, this.radius, angleTop, angle, true);
+        ctx.lineTo(this.centerX, this.centerY);
+        ctx.closePath();
 
-        this.ctx.fillStyle = "red";
-        this.ctx.fill();
+        ctx.fillStyle = "red";
+        ctx.fill();
+    }
+
+    drawTimeLeft(ctx) {
+        ctx.font = "50px Consolas, Monospace";
+        ctx.fillStyle = "black";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(`${(this.timeLeft / 1000).toFixed(3)}`, this.centerX, this.centerY);
     }
 }
