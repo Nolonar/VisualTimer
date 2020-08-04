@@ -5,7 +5,7 @@ const defaultDuration = 20 * MINUTES;
 
 class Timer {
     get timeLeft() {
-        return this.timerEnd.getTime() - new Date().getTime();
+        return Math.max(this.timerEnd.getTime() - new Date().getTime(), 0);
     }
 
     get timeLeftPercent() {
@@ -16,7 +16,16 @@ class Timer {
         return pi2 * this.timeLeftPercent + angleTop;
     }
 
+    get isRunning() {
+        return this._isRunning;
+    }
+    set isRunning(value) {
+        this._isRunning = value;
+    }
+
     constructor(canvasElement) {
+        this._isRunning = false;
+
         this.canvas = canvasElement;
         this.ctx = this.canvas.getContext("2d");
 
@@ -46,9 +55,16 @@ class Timer {
         this.centerX = this.width / 2;
         this.centerY = this.height / 2;
         this.radius = Math.min(this.width, this.height) / 2;
+
+        if (this.isRunning) {
+            this.drawAll(this.ctx);
+        } else {
+            this.drawTimerBackground(this.ctx);
+        }
     }
 
     start(durationMs) {
+        this.isRunning = true;
         if (durationMs)
             this.setDuration(durationMs);
 
@@ -56,11 +72,11 @@ class Timer {
     }
 
     reset() {
+        this.isRunning = false;
         this.drawTimerBackground(this.ctx);
     }
 
     update() {
-        this.updateDimensions();
         this.drawAll();
 
         if (this.timeLeftPercent > 0) {

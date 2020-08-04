@@ -1,6 +1,7 @@
 let alarm = new Audio();
 let durationControl = document.getElementById("duration-control");
-let timer = new Timer(document.getElementById("timer-canvas")).setTimerEnd(() => {
+let canvas = document.getElementById("timer-canvas");
+let timer = new Timer(canvas).setTimerEnd(() => {
     // Sound effects obtained from https://www.zapsplat.com
     alarm.src = "alarm.mp3";
     alarm.loop = true;
@@ -28,7 +29,7 @@ function stopAlarm() {
 }
 
 document.getElementById("start-button").onclick = startTimer;
-document.onclick = () => {
+canvas.onclick = () => {
     stopAlarm();
     timer.reset();
 };
