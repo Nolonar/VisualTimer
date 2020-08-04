@@ -1,8 +1,3 @@
-const MILLISECONDS = 1;
-const SECONDS = 1000 * MILLISECONDS;
-const MINUTES = 60 * SECONDS;
-const HOURS = 60 * MINUTES;
-
 const pi2 = Math.PI * 2;
 const angleTop = -Math.PI / 2;
 
@@ -25,6 +20,9 @@ class Timer {
 
         this.setDuration(defaultDuration);
         this.updateDimensions();
+
+        // For event handling
+        this.onTimeUp = [];
     }
 
     setDuration(durationMs) {
@@ -42,7 +40,10 @@ class Timer {
         this.radius = Math.min(this.width, this.height) / 2;
     }
 
-    start() {
+    start(durationMs) {
+        if (durationMs)
+            this.setDuration(durationMs);
+
         requestAnimationFrame(() => this.update());
     }
 
@@ -56,6 +57,12 @@ class Timer {
 
         if (this.timeLeftPercent > 0) {
             requestAnimationFrame(() => this.update());
+        } else {
+            requestAnimationFrame(() => {
+                let eventHandlers = this.onTimeUp.filter(h => h instanceof Function);
+                for (const eventHandler of eventHandlers)
+                    eventHandler();
+            });
         }
     }
 
@@ -80,5 +87,3 @@ class Timer {
         this.ctx.fill();
     }
 }
-
-new Timer(document.getElementById("timer-canvas")).setDuration(20 * SECONDS).start();
