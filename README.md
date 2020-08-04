@@ -1,5 +1,5 @@
 # VisualTimer
-Visualize the time you have left. Perfect for presentations.
+Visualize the time you have left. Perfect for presentations or meetings.
 
 ![Screenshot][screen]
 
