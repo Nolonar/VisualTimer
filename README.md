@@ -3,18 +3,35 @@ Visualize the time you have left. Perfect for presentations.
 
 ![Screenshot][screen]
 
+| Project       | Latest release |
+| ------------- | -------------- |
+| VisualTimer   | [Zip][release] |
+
 ## Requirements
 Any reasonably modern browser that is kept reasonably up-to-date.
 
-- Confirmed working:
+Confirmed working:
 
-  - **Google Chrome** (Desktop only)
-  - **Mozilla Firefox** (Desktop only)
-  - **MS Edge** (Legacy & Chromium)
-  - **Apple Safari** (macOS & iOS)
+- Windows
+  - **Chrome**
+  - **Firefox**
+  - **Edge** (Legacy & Chromium)
 
-- **Not** working:
-  - **MS Internet Explorer** (all versions)
+- macOS
+  - **Safari**
+
+- Android
+  - **Chrome**
+
+- iOS
+  - **Safari**
+
+**Not** working:
+- Windows
+  - **Internet Explorer** (all versions)
+
+- Windows Phone
+  - **Internet Explorer**
 
 Browsers not on either list may still work, but have not been tested.
 
@@ -48,3 +65,4 @@ There is no whitespace between the value and the unit.
 
 
   [screen]: screenshot.png
+  [release]: https://github.com/Nolonar/VisualTimer/releases/latest/download/VisualTimer.zip
