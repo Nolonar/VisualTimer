@@ -1,24 +1,25 @@
 let alarm = document.getElementById("alarm");
-let validUnits = Object.keys(TIME_FROM_UNITS);
-let timer = new Timer(document.getElementById("timer-canvas"));
+let durationControl = document.getElementById("duration-control");
+let timer = new Timer(document.getElementById("timer-canvas")).setTimerEnd(() => alarm.play());
 
-function start() {
-    alarm.pause();
-    let inputString = prompt(`Enter a duration for the timer. Valid units are:\n\n${validUnits.join("\n")}`, "20m");
-    let result = inputString.match(/^(\d*\.?\d*)(ms|s|m|h)$/i);
-    if (!result)
-        return;
+function startTimer() {
+    stopAlarm();
 
-    let value = Number(result[1]);
-    let unit = result[2];
+    let value = document.getElementById("duration-value").value;
+    let unit = document.getElementById("duration-unit").value;
     let duration = value * getTimeFromUnits(unit);
-
-    timer.onTimeUp.push(() => {
-        alarm.play();
-    });
-
-    timer.start(duration);
+    if (duration)
+        timer.start(duration);
 }
 
-document.onclick = start;
-start();
+function stopAlarm() {
+    alarm.pause();
+    alarm.currentTime = 0;
+}
+
+document.getElementById("start-button").onclick = startTimer;
+document.onclick = () => {
+    stopAlarm();
+    timer.reset();
+};
+window.onresize = () => timer.updateDimensions();

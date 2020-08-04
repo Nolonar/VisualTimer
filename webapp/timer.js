@@ -22,6 +22,7 @@ class Timer {
 
         this.setDuration(defaultDuration);
         this.updateDimensions();
+        this.reset();
 
         // For event handling
         this.onTimeUp = [];
@@ -30,6 +31,11 @@ class Timer {
     setDuration(durationMs) {
         this.durationMs = durationMs;
         this.timerEnd = new Date(new Date().getTime() + durationMs);
+        return this;
+    }
+
+    setTimerEnd(callback) {
+        this.onTimeUp.push(callback);
         return this;
     }
 
@@ -47,6 +53,10 @@ class Timer {
             this.setDuration(durationMs);
 
         requestAnimationFrame(() => this.update());
+    }
+
+    reset() {
+        this.drawTimerBackground(this.ctx);
     }
 
     update() {
@@ -67,13 +77,13 @@ class Timer {
     drawAll() {
         let ctx = this.ctx;
 
-        ctx.clearRect(0, 0, this.width, this.height);
         this.drawTimerBackground(ctx);
         this.drawTimerSpent(ctx);
         this.drawTimeLeft(ctx);
     }
 
     drawTimerBackground(ctx) {
+        ctx.clearRect(0, 0, this.width, this.height);
         ctx.beginPath();
         ctx.arc(this.centerX, this.centerY, this.radius, 0, pi2);
         ctx.fillStyle = "white";
