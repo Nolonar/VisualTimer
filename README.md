@@ -19,27 +19,32 @@ Any reasonably modern browser that is kept reasonably up-to-date.
 Browsers not on either list may still work, but have not been tested.
 
 ## Installation
-Simply download `timer.html`, `style.css`, and `timer.js` to the same folder.
+Simply download all `.html`, `.css`, and `.js` files to the same folder.
 
-## How to use
+## How to run
 #### If downloaded to your PC (offline use)
 Simply open `timer.html` with a browser.
 
 #### If downloaded to a web server
 Use a browser to navigate to your webserver, for instance: https://example.com/timer.html
 
-## How to configure
-VisualTimer currently does not support dynamic durations, so any changes in duration must be done by editing the `timer.js` file.
+## How to use
+When the page loads, you will be asked to enter a duration. A duration must have a value (number) followed by a unit. Valid units are:
 
-1. Open `timer.js` with a text editor of your choice.
-2. Look for the following line (last line): `new Timer(document.getElementById("timer-canvas")).setDuration(20 * SECONDS).start();`
-3. Replace `20 * SECONDS` with any value of your choosing. Make sure to keep the asterisk (`*`) between the number and the unit. Valid units are:
-  - `MILLISECONDS`
-  - `SECONDS`
-  - `MINUTES`
-  - `HOURS`
+- `ms`: milliseconds
+- `s`: seconds
+- `m`: minutes
+- `h`: hours
 
-Note: JavaScript is case-sensitive. `HOURS` is valid, but `hours` or `Hours` are not.
+Example of valid durations:
+
+- `20m`: 20 minutes
+- `20000ms`: 20 000 milliseconds (20 seconds)
+- `100s`: 100 seconds (1 minute 40 seconds)
+- `1.5m`: 1.5 minutes (1 minute 30 seconds)
+- `.1h`: 0.1 hours (6 minutes)
+
+There is no whitespace between the value and the unit.
 
 
   [screen]: screenshot.png
