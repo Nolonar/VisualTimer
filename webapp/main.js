@@ -1,5 +1,6 @@
 let alarm = document.getElementById("alarm");
 let validUnits = Object.keys(TIME_FROM_UNITS);
+let timer = new Timer(document.getElementById("timer-canvas"));
 
 function start() {
     alarm.pause();
@@ -12,7 +13,6 @@ function start() {
     let unit = result[2];
     let duration = value * getTimeFromUnits(unit);
 
-    let timer = new Timer(document.getElementById("timer-canvas"));
     timer.onTimeUp.push(() => {
         alarm.play();
     });
