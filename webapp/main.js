@@ -1,8 +1,15 @@
-let alarm = document.getElementById("alarm");
+let alarm = new Audio();
 let durationControl = document.getElementById("duration-control");
-let timer = new Timer(document.getElementById("timer-canvas")).setTimerEnd(() => alarm.play());
+let timer = new Timer(document.getElementById("timer-canvas")).setTimerEnd(() => {
+    // Sound effects obtained from https://www.zapsplat.com
+    alarm.src = "alarm.mp3";
+    alarm.loop = true;
+    alarm.play();
+});
 
 function startTimer() {
+    // Workaround for iOS Safari only playing audio after immediate user interaction.
+    alarm.play();
     stopAlarm();
 
     let value = document.getElementById("duration-value").value;
@@ -13,6 +20,9 @@ function startTimer() {
 }
 
 function stopAlarm() {
+    if (!alarm)
+        return;
+
     alarm.pause();
     alarm.currentTime = 0;
 }
