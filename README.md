@@ -10,28 +10,28 @@ Visualize the time you have left. Perfect for presentations.
 ## Requirements
 Any reasonably modern browser that is kept reasonably up-to-date.
 
-- Confirmed working:
+Confirmed working:
 
-  - Windows
-    - **Chrome**
-    - **Firefox**
-    - **Edge** (Legacy & Chromium)
+- Windows
+  - **Chrome**
+  - **Firefox**
+  - **Edge** (Legacy & Chromium)
 
-  - macOS
-    - **Safari**
-    
-  - Android
-    - **Chrome**
+- macOS
+  - **Safari**
 
-  - iOS
-    - **Safari**
+- Android
+  - **Chrome**
 
-- **Not** working:
-  - Windows
-    - **Internet Explorer** (all versions)
+- iOS
+  - **Safari**
 
-  - Windows Phone
-    - **Internet Explorer**
+**Not** working:
+- Windows
+  - **Internet Explorer** (all versions)
+
+- Windows Phone
+  - **Internet Explorer**
 
 Browsers not on either list may still work, but have not been tested.
 
