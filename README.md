@@ -63,6 +63,9 @@ Example of valid durations:
 
 There is no whitespace between the value and the unit.
 
+### Restart timer
+You can restart the timer at any time by clicking anywhere on the page. If you clicked by mistake, simply select "Cancel" to return to the timer.
+
 
   [screen]: screenshot.png
   [release]: https://github.com/Nolonar/VisualTimer/releases/latest/download/VisualTimer.zip
