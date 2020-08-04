@@ -12,13 +12,26 @@ Any reasonably modern browser that is kept reasonably up-to-date.
 
 - Confirmed working:
 
-  - **Google Chrome** (Desktop only)
-  - **Mozilla Firefox** (Desktop only)
-  - **MS Edge** (Legacy & Chromium)
-  - **Apple Safari** (macOS & iOS)
+  - Windows
+    - **Chrome**
+    - **Firefox**
+    - **Edge** (Legacy & Chromium)
+
+  - macOS
+    - **Safari**
+    
+  - Android
+    - **Chrome**
+
+  - iOS
+    - **Safari**
 
 - **Not** working:
-  - **MS Internet Explorer** (all versions)
+  - Windows
+    - **Internet Explorer** (all versions)
+
+  - Windows Phone
+    - **Internet Explorer**
 
 Browsers not on either list may still work, but have not been tested.
 
