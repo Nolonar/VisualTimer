@@ -46,25 +46,18 @@ Simply open `timer.html` with a browser.
 Use a browser to navigate to your webserver, for instance: https://example.com/timer.html
 
 ## How to use
-When the page loads, you will be asked to enter a duration. A duration must have a value (number) followed by a unit. Valid units are:
+### Set a duration
+Enter a duration and select a duration unit. To mix multiple units, use floating point values or the smallest unit.
 
-- `ms`: milliseconds
-- `s`: seconds
-- `m`: minutes
-- `h`: hours
+Example:
+- 1.5 Minutes -> 1 minute and 30 seconds.
+- 100 Seconds -> 1 minute and 40 seconds.
 
-Example of valid durations:
+### Start timer
+Simply click on "Start timer". You can start a new timer at any time by clicking on "Start timer".
 
-- `20m`: 20 minutes
-- `20000ms`: 20 000 milliseconds (20 seconds)
-- `100s`: 100 seconds (1 minute 40 seconds)
-- `1.5m`: 1.5 minutes (1 minute 30 seconds)
-- `.1h`: 0.1 hours (6 minutes)
-
-There is no whitespace between the value and the unit.
-
-### Restart timer
-You can restart the timer at any time by clicking anywhere on the page. If you clicked by mistake, simply select "Cancel" to return to the timer.
+### Stop alarm
+You can stop the alarm by clicking on the timer. Starting a new timer will also stop the current alarm.
 
 
   [screen]: screenshot.png
