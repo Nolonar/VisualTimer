@@ -36,7 +36,7 @@ Confirmed working:
 Browsers not on either list may still work, but have not been tested.
 
 ## Installation
-Simply download all files from the *webapp* folder to the same folder.
+Simply download all files from the [webapp](webapp) folder to the same folder.
 
 ## How to run
 #### If downloaded to your PC (offline use)
