@@ -36,7 +36,7 @@ Confirmed working:
 Browsers not on either list may still work, but have not been tested.
 
 ## Installation
-Simply download all `.html`, `.css`, and `.js` files to the same folder.
+Simply download all files from the *webapp* folder to the same folder.
 
 ## How to run
 #### If downloaded to your PC (offline use)
@@ -61,4 +61,4 @@ You can stop the alarm by clicking on the timer. Starting a new timer will also 
 
 
   [screen]: screenshot.png
-  [release]: https://github.com/Nolonar/VisualTimer/releases/latest/download/VisualTimer.zip
+  [release]: https://github.com/Nolonar/VisualTimer/releases/latest/download/webapp.zip
