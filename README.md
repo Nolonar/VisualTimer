@@ -1,11 +1,13 @@
 # VisualTimer
 Visualize the time you have left. Perfect for presentations or meetings.
 
+A deployed version of VisualTimer can be found [here][webapp].
+
 ![Screenshot][screen]
 
-| Project       | Latest release |
-| ------------- | -------------- |
-| VisualTimer   | [Zip][release] |
+| Project       | Latest release | Webapp         |
+| ------------- | -------------- | -------------- |
+| VisualTimer   | [Zip][release] | [Here][webapp] |
 
 ## Requirements
 Any reasonably modern browser that is kept reasonably up-to-date.
@@ -40,10 +42,10 @@ Simply download all files from the [webapp](webapp) folder to the same folder.
 
 ## How to run
 #### If downloaded to your PC (offline use)
-Simply open `timer.html` with a browser.
+Simply open `index.html` with a browser.
 
 #### If downloaded to a web server
-Use a browser to navigate to your webserver, for instance: https://example.com/timer.html
+Use a browser to navigate to your webserver, for instance: https://example.com/webapp/
 
 ## How to use
 ### Set a duration
@@ -62,3 +64,4 @@ You can stop the alarm by clicking on the timer. Starting a new timer will also 
 
   [screen]: screenshot.png
   [release]: https://github.com/Nolonar/VisualTimer/releases/latest/download/webapp.zip
+  [webapp]: https://nolonar.github.io/VisualTimer/webapp/
