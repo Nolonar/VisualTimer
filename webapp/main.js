@@ -1,5 +1,4 @@
 let alarm = new Audio();
-let durationControl = document.getElementById("duration-control");
 let canvas = document.getElementById("timer-canvas");
 let timer = new Timer(canvas).setTimerEnd(() => {
     // Sound effects obtained from https://www.zapsplat.com
@@ -28,9 +27,21 @@ function stopAlarm() {
     alarm.currentTime = 0;
 }
 
+function updateAlarmVolume(isAlarmEnabled) {
+    alarm.volume = isAlarmEnabled ? 1 : 0;
+}
+
+updateAlarmVolume(document.getElementById("is-alarm-enabled").checked);
+
+document.getElementById("is-alarm-enabled").addEventListener("change", event => {
+    updateAlarmVolume(event.currentTarget.checked);
+});
+
 document.getElementById("start-button").onclick = startTimer;
+
 canvas.onclick = () => {
     stopAlarm();
     timer.reset();
 };
+
 window.onresize = () => timer.updateDimensions();

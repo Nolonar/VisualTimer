@@ -10,10 +10,10 @@ body {
     height: 100%;
 }
 
-#duration-control {
+#settings {
     position: absolute;
 }
 
-#duration-control label {
+#settings label {
     color: white;
 }
