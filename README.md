@@ -61,6 +61,11 @@ Simply click on "Start timer". You can start a new timer at any time by clicking
 ### Stop alarm
 You can stop the alarm by clicking on the timer. Starting a new timer will also stop the current alarm.
 
+## Credits
+
+This project uses sound effects obtained from https://www.zapsplat.com  
+License for the sound effects can be found here: https://www.zapsplat.com/license-type/standard-license/
+
 
   [screen]: screenshot.png
   [release]: https://github.com/Nolonar/VisualTimer/releases/latest/download/webapp.zip
